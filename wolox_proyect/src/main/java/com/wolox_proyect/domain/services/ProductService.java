@@ -1,20 +1,19 @@
 package com.wolox_proyect.domain.services;
 
 import com.wolox_proyect.domain.Product;
-import com.wolox_proyect.domain.repository.ProductRepository;
+import com.wolox_proyect.domain.repository.ProductRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductService {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductRepositoryInterface productRepositoryInterface;
 
     public List<Product> getAll(){
-        return productRepository.getAll();
+        return productRepositoryInterface.getAll();
     }
 
     /*public Optional<Product> getProduct(int productId){
@@ -22,11 +21,11 @@ public class ProductService {
     }*/
 
     public Product save (Product product){
-        return productRepository.save(product);
+        return productRepositoryInterface.save(product);
     }
 
     public void delete(int productId){
-        productRepository.delete(productId);
+        productRepositoryInterface.delete(productId);
     }
 
 }

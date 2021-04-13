@@ -9,7 +9,7 @@ import org.mapstruct.Mappings;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")  // decimos queel mapper es de tipo Spring
+@Mapper(componentModel = "spring")  // decimos que el mapper es de tipo Spring
 public interface ProductMapper {
     @Mappings({
             @Mapping(source = "idProdcut", target = "productId"),
@@ -20,10 +20,10 @@ public interface ProductMapper {
             @Mapping(source = "estado", target = "active")
     })
 
-    Product toProducto(Producto producto);
+    Product toProduct(Producto producto);
     List<Product> toProducts(List<Producto> productos);
 
     @InheritInverseConfiguration        // se le dice que haga el mapeo inverso al anterior
     @Mapping(target = "barCode", ignore = true) // para que ignore el campo de código d ebarras
-    Producto toProduct(Product product);
+    Producto toProducto(Product product);
 }

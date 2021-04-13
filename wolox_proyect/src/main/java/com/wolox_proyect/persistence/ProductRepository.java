@@ -1,6 +1,7 @@
 package com.wolox_proyect.persistence;
 
 import com.wolox_proyect.domain.Product;
+import com.wolox_proyect.domain.repository.ProductRepositoryInterface;
 import com.wolox_proyect.persistence.crud.ProductCrudRepository;
 import com.wolox_proyect.persistence.entity.Producto;
 import com.wolox_proyect.persistence.mapper.ProductMapper;
@@ -12,12 +13,13 @@ import java.util.Optional;
 
 //@Component  generaliza que es un componente de Spring
 @Repository
-public class ProductRepository implements com.wolox_proyect.domain.repository.ProductRepository {
+public class ProductRepository implements ProductRepositoryInterface {
     @Autowired
     private ProductCrudRepository productCrudRepository;
     @Autowired
     private ProductMapper mapper;
 
+    @Override
     public List<Product> getAll(){
         List<Producto> productos = (List<Producto>) productCrudRepository.findAll();
         return mapper.toProducts(productos);
@@ -39,8 +41,8 @@ public class ProductRepository implements com.wolox_proyect.domain.repository.Pr
 
     @Override
     public Product save(Product product){
-        Producto producto = mapper.toProduct(product);
-        return mapper.toProducto(productCrudRepository.save(producto));
+        Producto producto = mapper.toProducto(product);
+        return mapper.toProduct(productCrudRepository.save(producto));
     }
 
     public void delete(int idProduct){
