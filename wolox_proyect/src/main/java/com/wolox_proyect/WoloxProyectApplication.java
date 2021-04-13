@@ -8,6 +8,7 @@ public class WoloxProyectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(WoloxProyectApplication.class, args);
+		System.out.println("Hello word");
 	}
 
 }
