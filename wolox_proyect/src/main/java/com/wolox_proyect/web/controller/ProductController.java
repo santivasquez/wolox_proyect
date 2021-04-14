@@ -1,10 +1,13 @@
 package com.wolox_proyect.web.controller;
 
 import com.wolox_proyect.domain.Product;
+import com.wolox_proyect.domain.User;
 import com.wolox_proyect.domain.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -26,6 +29,13 @@ public class ProductController {
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable("id") int productId){
         productService.delete(productId);
+    }
+
+    @GetMapping("/users")
+    public List<User> callRestService(){
+        RestTemplate restTemplate = new RestTemplate();
+        User[] users = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users", User[].class);
+        return Arrays.asList(users);
     }
 
 }
