@@ -7,7 +7,6 @@ import javax.persistence.*;
 public class Usuario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "place_id")
     private Integer idUser;
 
@@ -23,12 +22,12 @@ public class Usuario {
 
     /** Getters and Setters**/
 
-    public Integer getIdProdcut() {
+    public Integer getIdUser() {
         return idUser;
     }
 
-    public void setIdProdcut(Integer idProdcut) {
-        this.idUser = idProdcut;
+    public void setIdUser(Integer idUser) {
+        this.idUser = idUser;
     }
 
     public String getNombre() {

@@ -31,11 +31,6 @@ public class ProductController {
         productService.delete(productId);
     }
 
-    @GetMapping("/users")
-    public List<User> callRestService(){
-        RestTemplate restTemplate = new RestTemplate();
-        User[] users = restTemplate.getForObject("https://jsonplaceholder.typicode.com/users", User[].class);
-        return Arrays.asList(users);
-    }
+
 
 }
