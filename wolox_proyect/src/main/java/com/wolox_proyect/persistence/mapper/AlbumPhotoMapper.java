@@ -16,9 +16,9 @@ public interface AlbumPhotoMapper {
     @Mappings({
             @Mapping(source = "idFoto", target = "id"),
             @Mapping(source = "albumId", target = "albumId"),
-            @Mapping(source = "titulo", target = "tittle"),
+            @Mapping(source = "titulo", target = "title"),
             @Mapping(source = "url", target = "url"),
-            @Mapping(source = "thumbnail", target = "thumbnail")
+            @Mapping(source = "thumbnail", target = "thumbnailUrl")
     })
     AlbumPhoto toAlbumPhoto (Foto foto);
 
@@ -26,7 +26,7 @@ public interface AlbumPhotoMapper {
     Foto toFoto (AlbumPhoto albumPhoto);
 
 
-    List<AlbumPhoto> toAlbumPhoto(List<Foto> fotos);
+    List<AlbumPhoto> toAlbumPhotos(List<Foto> fotos);
 
     @InheritInverseConfiguration
     List<Foto> toFotos(List<AlbumPhoto> albumPhotos);

@@ -1,5 +1,6 @@
 package com.wolox_proyect.web.controller;
 
+import com.wolox_proyect.domain.AlbumPhoto;
 import com.wolox_proyect.domain.User;
 import com.wolox_proyect.domain.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+
+    @GetMapping("/all")
+    public List<User> getAllService(){
+        return userService.getAll();
+    }
 
     @GetMapping("/save")
     public List<User> callRestService(){

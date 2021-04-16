@@ -23,12 +23,14 @@ public interface UserMapper {
     User toUser (Usuario usuario);
 
     @InheritInverseConfiguration
+    @Mapping(target="albumEntities", ignore = true)
     Usuario toUsuario (User user);
 
 
     List<User> toUsers(List<Usuario> usuarios);
 
     @InheritInverseConfiguration
+    @Mapping(target="albumEntities", ignore = true)
     List<Usuario> toUsuarios(List<User> users);
 
 }

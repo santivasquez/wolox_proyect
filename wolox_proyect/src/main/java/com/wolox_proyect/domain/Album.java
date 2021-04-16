@@ -3,8 +3,9 @@ package com.wolox_proyect.domain;
 public class Album {
 
     private int id;
-    private int user_id;
-    private String tittle;
+    private int userId;
+    private String title;
+    private User user;
 
     public int getId() {
         return id;
@@ -14,19 +15,27 @@ public class Album {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public String getTittle() {
-        return tittle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTittle(String tittle) {
-        this.tittle = tittle;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

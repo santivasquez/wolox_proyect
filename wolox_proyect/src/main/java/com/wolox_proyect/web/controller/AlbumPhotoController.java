@@ -1,5 +1,6 @@
 package com.wolox_proyect.web.controller;
 
+import com.wolox_proyect.domain.Album;
 import com.wolox_proyect.domain.AlbumPhoto;
 import com.wolox_proyect.domain.User;
 import com.wolox_proyect.domain.services.AlbumPhotoService;
@@ -18,6 +19,12 @@ public class AlbumPhotoController {
 
     @Autowired
     AlbumPhotoService albumPhotoService;
+
+
+    @GetMapping("/all")
+    public List<AlbumPhoto> getAllService(){
+        return albumPhotoService.getAll();
+    }
 
     @GetMapping("/save")
     public List<AlbumPhoto> callRestService(){

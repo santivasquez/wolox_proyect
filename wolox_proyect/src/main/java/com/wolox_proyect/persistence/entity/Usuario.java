@@ -1,6 +1,7 @@
 package com.wolox_proyect.persistence.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name= "usuarios")
@@ -18,6 +19,9 @@ public class Usuario {
 
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<AlbumEntity> albumEntities;
 
 
     /** Getters and Setters**/
@@ -52,5 +56,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<AlbumEntity> getAlbumEntities() {
+        return albumEntities;
+    }
+
+    public void setAlbumEntities(List<AlbumEntity> albumEntities) {
+        this.albumEntities = albumEntities;
     }
 }

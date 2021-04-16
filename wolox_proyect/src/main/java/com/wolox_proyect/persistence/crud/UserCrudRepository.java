@@ -10,4 +10,6 @@ public interface UserCrudRepository extends CrudRepository<Usuario, Integer> {
 
     List<Usuario> findByidUserOrderByNombreAsc(int idUser);
 
+
+
 }
